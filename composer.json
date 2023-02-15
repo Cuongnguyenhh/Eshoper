@@ -1,0 +1,16 @@
+{
+    "name": "hungn/larava",
+    "autoload": {
+        "psr-4": {
+            "larava\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hung"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^9.51"
+    }
+}
