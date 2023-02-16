@@ -10,4 +10,10 @@ class AboutController extends Controller{
     public function page404(){
         $this->View("home/404");
     }
+    public function shop(){
+        $this->View("home/shop");
+    }
+    public function login(){
+        $this->View("home/login","","loginlayout");
+    }
 }

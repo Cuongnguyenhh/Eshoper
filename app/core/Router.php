@@ -2,6 +2,7 @@
 namespace larava\core;
 class Router{ 
     public $routes=[];   
+    public $login = "";
     public function get($path, $callback){
         $this->routes['get'][$path]=$callback;
     }
@@ -20,7 +21,7 @@ class Router{
             $action = $callback[1];
             call_user_func([$controller,$action]);
         }    
-        var_dump($this->routes);      
+          
     }
    
 }
