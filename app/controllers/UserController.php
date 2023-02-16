@@ -2,7 +2,10 @@
 namespace larava\controllers;
 use larava\core\Controller;
 use Illuminate\Contracts\Session\Session;
-use Illuminate\Support\Facades\Redirect;
+use larava\core\RedirectTrait;
+
+
+
 session_start();
 ob_start();
 class UserController extends Controller{
@@ -28,12 +31,18 @@ class UserController extends Controller{
             $userinfo = $check->getAttributes();
             $_SESSION['login'] = $userinfo;
 
-        }
-        if($_SESSION['login']['type==0']){
-        return $this->View('/home/home');
+            if($_SESSION['login']['type'] == '0'){
+                return $this->View('/home/home');
+            }else{
+                return $this->View("/admin/dashboard","","admin");
+
+            }
         }else{
-            return $this->View('/dashboard/login', '', 'admin');
+            $_SESSION['message']['login'] = 'Your username or password is incorrect';
+            return $this->View("/home/login","","loginlayout");
         }
+        
+       
     }
     public function logout(){
         unset($_SESSION['login']);

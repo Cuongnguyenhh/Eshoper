@@ -162,8 +162,15 @@
 				<div class="col-sm-3">
 					
 				</div>
+		
 				
 				<div style="width: 100%;" class="col-sm-9 padding-right">
+				<?php $message = $_SESSION['message']['login'];
+			if($message){
+				echo '<span class="alert alert-danger">'.$message.'</span>';
+				unset($_SESSION['message']);
+			}
+	?>
                     {{content}}
 					
 				</div>
