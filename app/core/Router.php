@@ -11,6 +11,7 @@ class Router{
         $this->routes['post'][$path]=$callback;
     }
 
+ 
     public function run(){
         $method=strtolower($_SERVER['REQUEST_METHOD']);
         $path=isset($_GET['url'])?"/".$_GET['url']:"/";
@@ -19,10 +20,12 @@ class Router{
         if(is_array($callback)){
             $controller = new $callback[0];
             $action = $callback[1];
-            call_user_func([$controller,$action]);
+            // check if id parameter is set in the URL
+            $id = isset($_GET['id']) ? $_GET['id'] : null;
+            // call the action method with the id parameter
+            call_user_func([$controller,$action], $id);
         }    
-          
     }
-   
+    
 }
 ?>

@@ -6,8 +6,6 @@ use larava\core\RedirectTrait;
 
 
 
-session_start();
-ob_start();
 class UserController extends Controller{
     public $user;   
     public function __construct(){
@@ -18,9 +16,8 @@ class UserController extends Controller{
         $data['name'] = $_POST['name'];
         $data['password'] = $_POST['password'];
         $data['phone'] = $_POST['phone'];
-        $data['type'] = "0";
         $this->user::insert($data);
-        return $this->View('/home/home');
+        header("location:http://localhost/Eshoper/login");
         
     }
     public function getlogin(){
@@ -32,9 +29,9 @@ class UserController extends Controller{
             $_SESSION['login'] = $userinfo;
 
             if($_SESSION['login']['type'] == '0'){
-                return $this->View('/home/home');
+                header("location:http://localhost/Eshoper/");
             }else{
-                return $this->View("/admin/dashboard","","admin");
+                header("location:http://localhost/Eshoper/dashboard");
 
             }
         }else{

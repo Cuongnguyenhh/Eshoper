@@ -36,6 +36,7 @@
               </label>
             </th>
             <th>Category name</th>
+            <th>Status</th>
             <th>Show</th>
             <th>Date</th>
             <th></th>
@@ -43,10 +44,34 @@
           </tr>
         </thead>
         <tbody>
-          <?php
+        <?php
+        $list = $data['list'];
           $count = 0;
-          
-      
+          foreach($list as $listcate){
+            $allcate = $listcate->getAttributes();
+            if($allcate['status'] == 0){
+              $status = 'Selling';
+            }else if($allcate['status'] == 1){ 
+              $status = 'Out of Stock';
+            }else{
+              $status = 'Stop Sales';
+            }
+
+            if($allcate['type'] == 0){
+              $show = 'Show';
+            }else{
+              $show = 'Hide';
+            }
+            echo '<tr>
+            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td>'.$allcate['cate_name'].'</td>
+            <td><span class="text-ellipsis">'.$status.'</span></td>
+            <td><span class="text-ellipsis">'.$show.'</span></td>
+            <td><span class="text-ellipsis">'.$allcate['time_create'].'</span></td>
+            <td>
+              <a href="../../editcate?id='.urlencode($allcate['id']) .'" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+            </td>';
+          }
            ?>
           </tr>
         </tbody>
@@ -55,9 +80,7 @@
     <footer class="panel-footer">
       <div class="row">
 
-        <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm">showing 0-0 of 0 items</small>
-        </div>
+        
         <div class="col-sm-7 text-right text-center-xs">
           <ul class="pagination pagination-sm m-t-none m-b-none">
             <li><a href=""><i class="fa fa-chevron-left"></i></a></li>

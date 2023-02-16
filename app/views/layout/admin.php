@@ -85,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="leftside-navigation">
                     <ul class="sidebar-menu" id="nav-accordion">
                         <li>
-                            <a class="active" href="{{URL::to('/dashboard')}}">
+                            <a class="active" href="../../dashboard">
                                 <i class="fa fa-dashboard"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -97,8 +97,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Catelories</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('/add-category-product')}}">Add Catelories</a></li>
-                                <li><a href="{{URL::to('/all-category-product')}}">List</a></li>
+                                <li><a href="../../addcate">Add Catelories</a></li>
+                                <li><a href="../../allcate">List</a></li>
                             </ul>
                         </li>
 
