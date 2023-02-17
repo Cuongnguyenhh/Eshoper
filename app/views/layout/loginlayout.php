@@ -171,7 +171,7 @@
 				if(isset($_SESSION['message']['login'])){
 				 $message = $_SESSION['message']['login'];}
 			if($message!=""){
-				echo '<span class="alert alert-danger">'.$message.'</span>';
+				echo '<span class="alekrt alert-danger">'.$message.'</span>';
 				unset($_SESSION['message']);
 			}
 	?>

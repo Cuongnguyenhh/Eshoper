@@ -8,15 +8,7 @@ class CategoryController extends Controller{
     }
 
     public function index(){        
-        $list=$this->categories::all();  
-        // foreach($list as  $colec){
-        //     $all = $colec->getAttributes();
-        //     echo "<pre>";
-        //     print_r($all);
-        //     echo "</pre>";
-        // }   
-        // return $this->View('admin/dashboard', $list,'admin');
-        $test = 'This is a test';
+        $list=$this->categories::all(); 
         return $this->View('admin/dashboard',['list' => $list],'admin');
     }
 
@@ -52,45 +44,6 @@ class CategoryController extends Controller{
         $this->categories::where('id', $id_cate)->update($data);
         header('location:http://localhost/Eshoper/dashboard');
     }
-        
-
-  
 
 
-    
-
-    
-
-    // public function addCate(){
-    //     $name=isset($_POST['txtname'])?$_POST['txtname']:"";
-    //     if($name!="")
-    //     $this->categories::create([
-    //         'name' => $name
-    //     ]);
-    //     header("location:/larava/category");
-    // }
-
-    // public function delCate(){
-    //     $id=isset($_GET['id'])?$_GET['id']:"";
-    //     if($id!="") $this->categories::where("id",$id)->delete();
-    //     header("location:/larava/category");
-    // }
-
-    // public function editCate(){        
-    //     $id=isset($_GET['id'])?$_GET['id']:"";
-    //     if($id!=""){
-    //         $cate=$this->categories::where("id",$id)->get();           
-    //         $this->View("category/editcate",$cate);
-    //     }        
-    // }
-
-    // public function updateCate(){
-    //     $name=isset($_POST['txtname'])?$_POST['txtname']:"";
-    //     $id=isset($_GET['id'])?$_GET['id']:"";
-    //     if($name!="") 
-    //         $this->categories::where("id",$id)->update([
-    //             "name"=>$name
-    //         ]);
-    //     header("location:/larava/category");
-    // }
 }

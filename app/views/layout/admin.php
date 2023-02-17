@@ -102,6 +102,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                         </li>
 
+                        <li class="sub-menu">
+                            <a href="">
+                                <i class="fa fa-product-hunt"></i>
+                                <span>Products</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="../../addprd">Add Product</a></li>
+                                <li><a href="../../allprd">List</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="">
+                                <i class="fa fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="../../addprd">Control User</a></li>
+                                <li><a href="../../allprd">List</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
                 <!-- sidebar menu end-->
