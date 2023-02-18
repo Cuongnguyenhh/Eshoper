@@ -7,4 +7,5 @@ class AdminController extends Controller{
      
         $this->View("admin/dashboard","","admin");
     }
+   
 }

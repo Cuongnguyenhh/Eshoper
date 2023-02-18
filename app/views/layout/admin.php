@@ -108,8 +108,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Products</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="../../addprd">Add Product</a></li>
-                                <li><a href="../../allprd">List</a></li>
+                                <li><a href="../../addproducts">Add Product</a></li>
+                                <li><a href="../../productlist">List</a></li>
                             </ul>
                         </li>
 
