@@ -66,7 +66,7 @@
             <td><img style="width: 75px;" class ="imprd" src="../../public/uploadfiles/'.$allprd['prd_img'].'"/></td>
             <td><span class="text-ellipsis">'.$allprd['time_create'].'</span></td>
             <td>
-              <a href="../../editcate?id='.urlencode($allprd['id']) .'" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+              <a href="../../editproduct?id='.urlencode($allprd['id']) .'" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
             </td>';
         }
         

@@ -7,6 +7,7 @@ use larava\controllers\ContactController;
 use larava\controllers\CategoryController;
 use larava\controllers\UserController;
 use Illuminate\Support\Facades\Redirect;
+use larava\controllers\CartController;
 use larava\controllers\ProductController;
 
 $router=new Router;
@@ -40,6 +41,15 @@ if(isset($_SESSION['login'])&& ($_SESSION['login']['type'])!=0){
     $router->get('/productlist',[ProductController::class,"index"]);
     $router->get('/addproducts',[ProductController::class,"formAddproducts"]);
     $router->post('/getaddproduct',[ProductController::class,"addproducts"]);
+    $router->get('/editproduct',[ProductController::class,"editproduct"]);
+    $router->post('/getupdate',[ProductController::class,"getupdate"]);
+
+
+
+    //cart routes
+    $router->get('/tocart',[CartController::class,"index"]);
+    $router->get('/getcart',[CartController::class,"addcart"]);
+    $router->get('/delcart',[CartController::class,"delcart"]);
 
 }
 
