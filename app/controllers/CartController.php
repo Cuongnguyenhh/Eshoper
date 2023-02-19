@@ -38,4 +38,9 @@ class CartController extends Controller
         unset($_SESSION['card'][$prdid]);
         return $this->View('/card/card','','loginlayout');
     }
+    public function checkout(){
+        echo '<pre>';
+        var_dump($_SESSION['card']);
+        echo '</pre>';
+    }
 }

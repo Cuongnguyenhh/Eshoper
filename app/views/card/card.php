@@ -75,12 +75,12 @@ button.cart_quantity_up:active {
 							<td></td>
 						</tr>
 					</thead>
-                   
+          <form action="">
 					<?php 
                        
                         foreach($_SESSION['card'] as $cards){
                             echo
-                             ' <form action="">
+                             '
                              <tbody>
 						
                              <tr>
@@ -98,7 +98,7 @@ button.cart_quantity_up:active {
                                          <button class="cart_quantity_down" > - </button>
                                      </div>
                                  </td>
-                                 </form>
+                                
                                  <td class="cart_total">
                                      <p class="cart_total_price">'.$cards['prd_price'].'</p>
                                  </td>
@@ -109,20 +109,59 @@ button.cart_quantity_up:active {
                          </tbody>
                           ';
                         }
-                    ?>
+
+                    ?> </form>
 				</table>
 			</div>
+      <a href="../../checkout"><button style="float: right;" type="button" class="btn btn-primary btn-lg">Large button</button></a>
 		</div>
-	</section>
-    <script>
-  const quantityInput = document.querySelector('.cart_quantity_input');
-  const priceElement = document.querySelector('.cart_total_price');
+    <!-- <script>
+  const quantityInputs = document.querySelectorAll('.cart_quantity_input');
+  const priceElements = document.querySelectorAll('.cart_total_price');
   const productPrice = <?php echo $cards['prd_price']; ?>;
 
-  document.querySelector('.cart_quantity_up').addEventListener('click', function(event) {
-    event.preventDefault();
-    const quantity = parseInt(quantityInput.value) + 1;
-    quantityInput.value = quantity;
-    priceElement.textContent = (productPrice * quantity).toFixed(2);
+  const cartQuantityUpButtons = document.querySelectorAll('.cart_quantity_up');
+  cartQuantityUpButtons.forEach(function(button, index) {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      const quantity = parseInt(quantityInputs[index].value) + 1;
+      quantityInputs[index].value = quantity;
+      priceElements[index].textContent = (productPrice * quantity).toFixed(2);
+    });
   });
-</script>
+</script> -->
+<script>
+  const quantityInputs = document.querySelectorAll('.cart_quantity_input');
+  const priceElements = document.querySelectorAll('.cart_total_price');
+  const productPrice = <?php echo $cards['prd_price']; ?>;
+
+  // Add event listeners to all quantity input fields
+  quantityInputs.forEach(function(input, index) {
+    input.addEventListener('input', function(event) {
+      const quantity = parseInt(input.value);
+      priceElements[index].textContent = (productPrice * quantity).toFixed(2);
+    });
+  });
+
+  // Add event listeners to all quantity up and down buttons
+  const cartQuantityUpButtons = document.querySelectorAll('.cart_quantity_up');
+  const cartQuantityDownButtons = document.querySelectorAll('.cart_quantity_down');
+  cartQuantityUpButtons.forEach(function(button, index) {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      const quantity = parseInt(quantityInputs[index].value) + 1;
+      quantityInputs[index].value = quantity;
+      priceElements[index].textContent = (productPrice * quantity).toFixed(2);
+    });
+  });       
+  cartQuantityDownButtons.forEach(function(button, index) {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      const quantity = parseInt(quantityInputs[index].value) - 1;
+      if (quantity >= 1) {
+        quantityInputs[index].value = quantity;
+        priceElements[index].textContent = (productPrice * quantity).toFixed(2);
+      }
+    });
+  });
+</script> 

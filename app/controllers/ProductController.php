@@ -10,6 +10,14 @@ class ProductController extends Controller{
         $this->cate =$this->Model('CategoryModel');
     }
 
+    public function productdetail(){
+       $id = $_GET['id'];
+       $prd = $this->product::all()->where('id', $id)->first();
+       $prdvalue = $prd->getAttributes();
+       return $this->View('products/productdetail',['prd'=>$prdvalue],'loginlayout');
+    }
+
+
     public function index(){
        $list = $this->product::all();
         
@@ -21,6 +29,7 @@ class ProductController extends Controller{
      return $this->view("products/addproduct","","admin");
     }
     
+
     public function addproducts(){
         $data = array();
         $imgload =basename( $_FILES['imgload']['name']);
@@ -78,4 +87,6 @@ class ProductController extends Controller{
     public function deleteproducts(){
         //code to delete
     }
+
+    
 }

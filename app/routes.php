@@ -16,6 +16,8 @@ $router->get("/",[AboutController::class,"index"]);
 $router->get("/home",[AboutController::class,"index"]);
 $router->get("/login",[AboutController::class,"login"]);
 $router->get("/shop",[AboutController::class,"shop"]);
+$router->get('/productdetail',[ProductController::class,"productdetail"]);
+$router->get('/checkout',[CartController::class,"checkout"]);
 
 
 //user routers;
@@ -46,25 +48,16 @@ if(isset($_SESSION['login'])&& ($_SESSION['login']['type'])!=0){
 
 
 
-    //cart routes
-    $router->get('/tocart',[CartController::class,"index"]);
-    $router->get('/getcart',[CartController::class,"addcart"]);
-    $router->get('/delcart',[CartController::class,"delcart"]);
-
-}
-
-
-
-
-
-
-
 
 $router->get("/contact",[ContactController::class,"form"]);
 $router->get("/category",[CategoryController::class,"index"]);
 $router->post("/category",[CategoryController::class,"addCate"]);
 $router->get("/delcate",[CategoryController::class,"delCate"]);
-
+}
+  //cart routes
+  $router->get('/tocart',[CartController::class,"index"]);
+  $router->get('/getcart',[CartController::class,"addcart"]);
+  $router->get('/delcart',[CartController::class,"delcart"]);
 // $router->get("/editcate",[CategoryController::class,"editCate"]);
 // $router->post("/editcate",[CategoryController::class,"updateCate"]);
 

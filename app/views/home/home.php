@@ -1,6 +1,6 @@
 <div class="features_items"><!--features_items-->
 	<h2 class="title text-center">Features Items</h2>
-
+	
 	<?php
 	$product = $data['product'];
 	$cout = 0;
@@ -19,7 +19,8 @@
 				<div class="product-overlay">
 					<div class="overlay-content">
 						<h2>'.$keyproduct['prd_price'].'</h2>
-						<p>'.$keyproduct['prd_name'].'</p>
+						<a href="../../productdetail?id='.$keyproduct['id'].'"><p>'.$keyproduct['prd_name'].'</p></a>
+						
 						<a href="../../getcart?id='.$keyproduct['id'].'" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 					</div>
 				</div>
