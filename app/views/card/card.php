@@ -113,7 +113,7 @@ button.cart_quantity_up:active {
                     ?> </form>
 				</table>
 			</div>
-      <a href="../../checkout"><button style="float: right;" type="button" class="btn btn-primary btn-lg">Large button</button></a>
+      <a href="../../checkout"><button style="float: right;" type="button" class="btn btn-primary btn-lg">Checkout</button></a>
 		</div>
     <!-- <script>
   const quantityInputs = document.querySelectorAll('.cart_quantity_input');
