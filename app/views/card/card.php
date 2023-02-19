@@ -115,21 +115,7 @@ button.cart_quantity_up:active {
 			</div>
       <a href="../../checkout"><button style="float: right;" type="button" class="btn btn-primary btn-lg">Checkout</button></a>
 		</div>
-    <!-- <script>
-  const quantityInputs = document.querySelectorAll('.cart_quantity_input');
-  const priceElements = document.querySelectorAll('.cart_total_price');
-  const productPrice = <?php echo $cards['prd_price']; ?>;
-
-  const cartQuantityUpButtons = document.querySelectorAll('.cart_quantity_up');
-  cartQuantityUpButtons.forEach(function(button, index) {
-    button.addEventListener('click', function(event) {
-      event.preventDefault();
-      const quantity = parseInt(quantityInputs[index].value) + 1;
-      quantityInputs[index].value = quantity;
-      priceElements[index].textContent = (productPrice * quantity).toFixed(2);
-    });
-  });
-</script> -->
+  
 <script>
   const quantityInputs = document.querySelectorAll('.cart_quantity_input');
   const priceElements = document.querySelectorAll('.cart_total_price');

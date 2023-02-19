@@ -1,3 +1,34 @@
+<?php
+					$message = "";
+					$message = "";
+					if (isset($_SESSION['message']['login'])) {
+						$message = $_SESSION['message']['login'];
+					}
+					if ($message != "") {
+						echo '<span class="alekrt alert-danger">' . $message . '</span>';
+						unset($_SESSION['message']);
+					}
+
+
+
+
+					 if (isset($_SESSION['siguplog'])) {
+						$message =$_SESSION['siguplog'];
+					}
+					if ($message != "" && $message == 'Name Account is already exists, please choose another name.') {
+						echo '<span class="alekrt alert-danger">' . $message . '</span>';
+						unset($_SESSION['message']);
+					}
+
+
+					if (isset($_SESSION['siguplog'])) {
+						$message = $_SESSION['siguplog'];
+					}
+					if ($message != "" && $message =='Create Susses! Please login') {
+						echo '<span class="alekrt alert-success">' . $message . '</span>';
+						unset($_SESSION['siguplog']);
+					}
+					?>
 <section id="form"><!--form-->
 		<div class="container">
 			<div class="row">
@@ -24,6 +55,7 @@
 						<form action="../../getsignin" method="post">
 							<input type="text"  name="name" placeholder="Name"/>
 							<input type="number" name="phone" placeholder="Phone"/>
+							<input type="text" name="user_adr" name="password" placeholder="Address"/>
 							<input type="password" name="password" placeholder="Password"/>
 							<button type="submit" class="btn btn-default">Signup</button>
 						</form>

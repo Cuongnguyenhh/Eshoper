@@ -16,8 +16,30 @@ class UserController extends Controller{
         $data['name'] = $_POST['name'];
         $data['password'] = $_POST['password'];
         $data['phone'] = $_POST['phone'];
+        $data['user_adr'] = $_POST['user_adr'];
+       $list =$this->user::all();
+       $cout = 0;
+       foreach( $list as $list){
+        $nameuser = $list->getAttributes();
+            if($data['name']==$nameuser['name']){
+                $cout ++;
+                $_SESSION['siguplog'] = 'Name Account is already exists, please choose another name.';
+                $create =false;
+                header("location:./login");
+                exit();
+                break;
+            }else{
+                $cout = 0;
+            }
+       }
+       echo $cout;
+       if($cout==0){
         $this->user::insert($data);
-        header("location:http://localhost/Eshoper/login");
+        $_SESSION['siguplog'] = 'Create Susses! Please login';
+        header("location:./login");
+        exit();
+       }
+       
         
     }
     public function getlogin(){
@@ -36,14 +58,14 @@ class UserController extends Controller{
             }
         }else{
             $_SESSION['message']['login'] = 'Your username or password is incorrect';
-            return $this->View("/home/login","","loginlayout");
+            header('Location:./login');
         }
         
        
     }
     public function logout(){
         unset($_SESSION['login']);
-        return $this->View('home/home');
+        header('Location:./home');
     }
 
 }
