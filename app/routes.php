@@ -28,7 +28,7 @@ $router->get('/logout',[UserController::class,"logout"]);
 
 
 //admin routes
-if(isset($_SESSION['login'])&& ($_SESSION['login']['type'])!=0){
+
     $router->get('/dashboard',[CategoryController::class,"index"]);
 
     //category routes
@@ -53,7 +53,6 @@ $router->get("/contact",[ContactController::class,"form"]);
 $router->get("/category",[CategoryController::class,"index"]);
 $router->post("/category",[CategoryController::class,"addCate"]);
 $router->get("/delcate",[CategoryController::class,"delCate"]);
-}
   //cart routes
   $router->get('/tocart',[CartController::class,"index"]);
   $router->get('/getcart',[CartController::class,"addcart"]);

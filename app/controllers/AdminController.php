@@ -6,8 +6,12 @@ class AdminController extends Controller{
    
     public function index(){
         
-     
+        if(isset($_SESSION['login'])&&$_SESSION['login']['type']==1){
         $this->View("admin/dashboard","","admin");
+        }else{
+            $this->View("home/login","","loginlayout");
+        }
+
     }
    
 }

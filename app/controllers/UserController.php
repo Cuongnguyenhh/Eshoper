@@ -29,9 +29,9 @@ class UserController extends Controller{
             $_SESSION['login'] = $userinfo;
 
             if($_SESSION['login']['type'] == '0'){
-                header("location:http://localhost/Eshoper/");
+                header("location:./");
             }else{
-                header("location:http://localhost/Eshoper/dashboard");
+                header("location:./dashboard");
 
             }
         }else{

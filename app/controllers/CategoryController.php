@@ -1,23 +1,38 @@
 <?php
+
 namespace larava\controllers;
+
 use larava\core\Controller;
-class CategoryController extends Controller{
-    public $categories;   
-    public function __construct(){
-        $this->categories=$this->Model('CategoryModel');
+
+class CategoryController extends Controller
+{
+    public $categories;
+    public function __construct()
+    {
+        $this->categories = $this->Model('CategoryModel');
     }
 
-    public function index(){        
-        $list=$this->categories::all(); 
-        return $this->View('admin/dashboard',['list' => $list],'admin');
+    public function index()
+    {
+        $list = $this->categories::all();
+        if (isset($_SESSION['login']) && $_SESSION['login']['type'] == 1) {
+            return $this->View('admin/dashboard', ['list' => $list], 'admin');
+        } else {
+            $this->View("home/login", "", "loginlayout");
+        }
     }
 
-    public function addcategory(){
-        return $this->View('admin/addcate','','admin');
-       
+    public function addcategory()
+    {
+        if (isset($_SESSION['login']) && $_SESSION['login']['type'] == 1) {
+            return $this->View('admin/addcate', '', 'admin');
+        } else {
+            $this->View("home/login", "", "loginlayout");
+        }
     }
 
-    public function getaddcategory(){
+    public function getaddcategory()
+    {
         $data = array();
         $data['cate_name'] = $_POST['cate_name'];
         $data['type'] = $_POST['type'];
@@ -25,17 +40,18 @@ class CategoryController extends Controller{
         $this->categories::insert($data);
         header('location:http://localhost/Eshoper/dashboard');
     }
-    public function editcategory(){
+    public function editcategory()
+    {
         $id_cate = $_GET['id'];
         $category = $this->categories->where('id', $id_cate)->first();
         $thatcate = $category->getAttributes();
-     
-        
-        return $this->View('admin/editcate',['cate' => $category],'admin');
-       
+
+
+        return $this->View('admin/editcate', ['cate' => $category], 'admin');
     }
-        
-    public function geteditcate(){
+
+    public function geteditcate()
+    {
         $id_cate = $_GET['id'];
         $data = array();
         $data['cate_name'] = $_POST['cate_name'];
@@ -44,6 +60,4 @@ class CategoryController extends Controller{
         $this->categories::where('id', $id_cate)->update($data);
         header('location:http://localhost/Eshoper/dashboard');
     }
-
-
 }
