@@ -1,5 +1,4 @@
 <div class="table-agile-info">
-<a href="../../public/uploadfiles">ffff</a>
   <div class="panel panel-default">
     <div class="panel-heading">
       All Category

@@ -62,8 +62,7 @@ class ProductController extends Controller
     }
     public function getupdate()
     {
-        $now = date('Y-m-d H:i:s');
-
+        
 
 
         $id_prd = $_GET["id"];
