@@ -11,7 +11,7 @@
 		<div class="product-image-wrapper">
 			<div class="single-products">
 				<div class="productinfo text-center">
-					<img src="../../public/uploadfiles/'.$keyproduct['prd_img'].'" alt="" />
+					<img style="height: 237px; width: 255px;" src="../../public/uploadfiles/'.$keyproduct['prd_img'].'" alt="" />
 					<h2>'.$keyproduct['prd_price'].'</h2>
 					<p>'.$keyproduct['prd_name'].'</p>
 					<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>

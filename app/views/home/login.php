@@ -1,8 +1,7 @@
 <?php
 					$message = "";
-					$message = "";
-					if (isset($_SESSION['message']['login'])) {
-						$message = $_SESSION['message']['login'];
+					if (isset($_SESSION['message'])) {
+						$message = $_SESSION['message'];
 					}
 					if ($message != "") {
 						echo '<span class="alekrt alert-danger">' . $message . '</span>';
@@ -23,6 +22,7 @@
 
 					if (isset($_SESSION['siguplog'])) {
 						$message = $_SESSION['siguplog'];
+						unset($_SESSION['siguplog']);
 					}
 					if ($message != "" && $message =='Create Susses! Please login') {
 						echo '<span class="alekrt alert-success">' . $message . '</span>';
